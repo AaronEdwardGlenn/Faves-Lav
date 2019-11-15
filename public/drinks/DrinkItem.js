@@ -1,19 +1,19 @@
 import Component from '../Component.js';
-import { makeFavorite, unFavorite } from '../../services/quote-api.js';
+import { makeFavorite, unFavorite } from '../services/drinks-api.js';
 
-class QuoteItem extends Component {
+class DrinkItem extends Component {
 
     onRender(li) {
-        const quote = this.props.quote;
+        const drink = this.props.drink;
         const removeUnFavorites = this.props.removeUnFavorites;
         const favoriteButton = li.querySelector('.favorite-star');
         favoriteButton.addEventListener('click', () => {
-            quote.isFavorite = !quote.isFavorite;
-            if (quote.isFavorite) {
-                makeFavorite(quote);
+            drink.isFavorite = !drink.isFavorite;
+            if (drink.isFavorite) {
+                makeFavorite(drink);
             }
             else {
-                unFavorite(quote.id);
+                unFavorite(drink.id);
                 li.classList.add('fade');
                 setTimeout(() => {
                     if (removeUnFavorites) {
@@ -26,24 +26,25 @@ class QuoteItem extends Component {
     }
 
     renderHTML() {
-        const quote = this.props.quote;
-        const starClass = quote.isFavorite ? 'is-favorite' : '';
+        const drink = this.props.drink;
+        console.log(this.props.drink);
+        const starClass = drink.isFavorite ? 'is-favorite' : '';
 
         return /*html*/`
-            <li class="quote-item">
+            <li class="drink-item">
                 <h2>
-                    <img src="${quote.image}">
-                    <span class="character-name">${quote.character}</span>
+                    <img src="${drink.strDrinkThumb}">
+                    <span class="drink-name">${drink.strDrink}</span>
                     <button class="favorite-star ${starClass}">★</button>
                 </h2>
                 
-                <quote>
-                    ${quote.quote}
-                </quote>
+                <drink>
+                    ${drink.strIngredient1}
+                </drink>
 
             </li>
         `;
     }
 }
 
-export default QuoteItem;
+export default DrinkItem;

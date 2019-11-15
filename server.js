@@ -8,8 +8,8 @@ const morgan = require('morgan');
 // Database Client
 const client = require('./lib/client');
 // Services
-const quotesApi = require('./lib/drinks-api');
-
+const drinksApi = require('./lib/drinks-api');
+console.log(drinksApi);
 // Auth
 const ensureAuth = require('./lib/auth/ensure-auth');
 const createAuthRoutes = require('./lib/auth/create-auth-routes');
@@ -60,7 +60,7 @@ app.get('/api/drinks', async(req, res) => {
         
         // Check if any of these are favorites:
         // Make an array of ids
-        const ids = drinks.map(quote => drink.id);
+        const ids = drinks.map(drink => drink.id);
         // Select these ids from the favorites table, for _this user_
         const result = await client.query(`
             SELECT id
@@ -94,9 +94,9 @@ app.get('/api/me/favorites', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT id, 
-                name, 
-                image, 
-                ingredient, 
+                name as strDrink, 
+                image as strDrinkThumb, 
+                ingredient as strIngredient1, 
                 user_id as "userId", 
                 TRUE as "isFavorite"
             FROM   favorites
@@ -119,11 +119,11 @@ app.post('/api/me/favorites', async(req, res) => {
     // Add a favorite _for the calling user_
     try {
         const drink = req.body;
-    
+        console.log(drink);
         const result = await client.query(`
             INSERT INTO favorites (id, name, user_id, ingredient, image)
             VALUES ($1, $2, $3, $4, $5)
-            RETURNING drink as id, name, user_id as "userId", ingredient, image;
+            RETURNING id, name, user_id as "userId", ingredient, image;
         `, [
             drink.idDrink, 
             drink.strDrink, 

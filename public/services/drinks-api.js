@@ -32,9 +32,9 @@ async function fetchWithError(url, options) {
     }
 }
 
-export function getQuotes() {  
+export function getDrinks() {  
     const hashQuery = window.location.hash.slice(1);
-    const url = `${BASE_URL}/quotes?${hashQuery}`;
+    const url = `${BASE_URL}/drinks?${hashQuery}`;
     return fetchWithError(url);
 }
 
@@ -43,19 +43,19 @@ export function getFavorites() {
     return fetchWithError(url);     
 }
 
-export function makeFavorite(quote) {
+export function makeFavorite(drink) {
     const url = `${BASE_URL}/me/favorites`;
     return fetchWithError(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(quote)        
+        body: JSON.stringify(drink)        
     });  
 }
 
-export function unFavorite(quoteId) {
-    const url = `${BASE_URL}/me/favorites/${quoteId}`;
+export function unFavorite(drinkId) {
+    const url = `${BASE_URL}/me/favorites/${drinkId}`;
     return fetchWithError(url, {
         method: 'DELETE',
     });    
@@ -82,4 +82,3 @@ export function signIn(credentials) {
         body: JSON.stringify(credentials)        
     });
 }
-

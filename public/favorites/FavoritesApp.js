@@ -1,22 +1,23 @@
 import Component from '../Component.js';
 import Header from '../common/Header.js';
-import QuoteList from '../quotes/QuoteList.js';
-import { getFavorites } from '../services/quote-api.js';
+import DrinkList from '../drinks/DrinkList.js';
+import { getFavorites } from '../services/drinks-api.js';
 
-class FindQuotesApp extends Component {
+class FindDrinksApp extends Component {
 
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
-
+        console.log(this.props);
         const listSection = dom.querySelector('.list-section');
         
-        const quoteList = new QuoteList({ quotes: [], removeUnFavorites: true });
-        listSection.appendChild(quoteList.renderDOM());
+        const drinksList = new DrinkList({ drinks: [], removeUnFavorites: true });
+        console.log(drinksList);
+        listSection.appendChild(drinksList.renderDOM());
         
         getFavorites()
-            .then(quotes => {
-                quoteList.update({ quotes: quotes });
+            .then(drinks => {
+                drinksList.update({ drinks: drinks });
             });
     }
 
@@ -28,7 +29,7 @@ class FindQuotesApp extends Component {
                 <main> 
                     <section class="list-section">
                         <!-- paging goes here -->
-                        <!-- quote list goes here -->        
+                        <!-- drink list goes here -->        
                     </section>
                 </main>
             </div>
@@ -36,4 +37,4 @@ class FindQuotesApp extends Component {
     }
 }
 
-export default FindQuotesApp;
+export default FindDrinksApp;

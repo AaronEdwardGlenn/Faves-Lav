@@ -16,11 +16,10 @@ class App extends Component {
                     <p>
                         <img 
                             class="planet-express" 
-                            src="https://res.cloudinary.com/dzxqhkyqd/image/upload/v1554871230/planet-express.png" 
-                            alt="Planet Express Ship from Futurama">
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTdQ7ng8mvf4DjKUAiWpeRygc2MLMGjmoGcvyl6UJajGxYJLsmC">
                     </p>
                     <p>
-                        <a href="quotes.html">Explore Quotes...</a>
+                        <a href="drinks.html">Explore Drinks...</a>
                     </p>
                 </main>
             </div>

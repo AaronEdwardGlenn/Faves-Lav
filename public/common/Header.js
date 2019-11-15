@@ -14,7 +14,7 @@ class Header extends Component {
     }
 
     renderHTML() {
-        const title = this.props.title || 'Futurama Quotes';
+        const title = this.props.title || 'Dranks We Like';
 
         return /*html*/`
             <header>
@@ -22,7 +22,7 @@ class Header extends Component {
                 <h1>${title}</h1>
                 <nav>
                     <a href="./">Home</a>
-                    <a href="./quotes.html">Quotes</a>
+                    <a href="./drinks.html">drinks</a>
                     <a href="./favorites.html">Favorites</a>
                 </nav>
                 <button class="log-out hidden">Log Out</button>

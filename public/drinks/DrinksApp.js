@@ -1,11 +1,11 @@
 import Component from '../Component.js';
 import Header from '../common/Header.js';
-import QuoteList from './QuoteList.js';
+import DrinkList from './DrinkList.js';
 import Search from './Search.js';
 import Paging from './Paging.js';
-import { getQuotes } from '../services/quote-api.js';
+import { getDrinks } from '../services/drinks-api.js';
 
-class QuotesApp extends Component {
+class DrinksApp extends Component {
 
     onRender(dom) {
         const header = new Header();
@@ -19,14 +19,14 @@ class QuotesApp extends Component {
 
         const listSection = dom.querySelector('.list-section');
         
-        const quoteList = new QuoteList({ quotes: [] });
-        listSection.appendChild(quoteList.renderDOM());
+        const drinkList = new DrinkList({ drinks: [] });
+        listSection.appendChild(drinkList.renderDOM());
         
-        async function loadQuotes() {
+        async function loadDrinks() {
             try {
-                const quotes = await getQuotes();
+                const drinks = await getDrinks();
                     
-                quoteList.update({ quotes: quotes });
+                drinkList.update({ drinks: drinks });
 
                 paging.update({ 
                     // This API does not give total results :(
@@ -38,10 +38,10 @@ class QuotesApp extends Component {
             }
         }
 
-        loadQuotes();
+        loadDrinks();
 
         window.addEventListener('hashchange', () => {
-            loadQuotes();
+            loadDrinks();
         });
     }
 
@@ -57,7 +57,7 @@ class QuotesApp extends Component {
                         
                     <section class="list-section">
                         <!-- paging goes here -->
-                        <!-- quote list goes here -->        
+                        <!-- drink list goes here -->        
                     </section>
                 </main>
             </div>
@@ -65,4 +65,4 @@ class QuotesApp extends Component {
     }
 }
 
-export default QuotesApp;
+export default DrinksApp;
