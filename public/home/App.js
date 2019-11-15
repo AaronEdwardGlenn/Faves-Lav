@@ -16,7 +16,7 @@ class App extends Component {
                     <p>
                         <img 
                             class="planet-express" 
-                            src="https://placekitten.com/200/300"
+                            src="https://res.cloudinary.com/dzxqhkyqd/image/upload/v1554871230/planet-express.png" 
                             alt="Planet Express Ship from Futurama">
                     </p>
                     <p>

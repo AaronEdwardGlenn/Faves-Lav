@@ -48,7 +48,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api', ensureAuth);
 
 // *** API Routes ***
-app.get('/api/quotes', async(req, res) => {
+app.get('/api/quotes', async (req, res) => {
     
     try {
         const query = req.query;
@@ -89,16 +89,16 @@ app.get('/api/quotes', async(req, res) => {
     }
 });
 
-app.get('/api/me/favorites', async(req, res) => {
+app.get('/api/me/favorites', async (req, res) => {
     // Get the favorites _for the calling user_
     try {
         const result = await client.query(`
             SELECT id, 
-                    character, 
-                    image, 
-                    quote, 
-                    user_id as "userId", 
-                    TRUE as "isFavorite"
+                character, 
+                image, 
+                quote, 
+                user_id as "userId", 
+                TRUE as "isFavorite"
             FROM   favorites
             WHERE user_id = $1;
         `, [req.userId]);
@@ -115,7 +115,7 @@ app.get('/api/me/favorites', async(req, res) => {
 
 const stringHash = require('string-hash');
 
-app.post('/api/me/favorites', async(req, res) => {
+app.post('/api/me/favorites', async (req, res) => {
     // Add a favorite _for the calling user_
     try {
         const quote = req.body;

@@ -1,0 +1,55 @@
+
+.quote-item {
+    height: 200px;
+    border: 1px solid #aaa;
+    background-color: white;
+    padding: 10px;
+    overflow: hidden;
+    transition: opacity 300ms ease-out;
+}
+
+
+.quote-item h2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.quote-item quote {
+    margin-top: 10px;   
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.quote-item h2 .character-name {
+    flex-grow: 1;
+}
+
+.quote-item h2 .favorite-star {
+    cursor: pointer;
+    user-select: none;
+    border: 0;
+    outline: 0;
+    background: none;
+    font-size: 1.4em;
+    color: #ccc;
+}
+
+.quote-item h2 .favorite-star.is-favorite {
+    color: gold;
+}
+
+.quote-item img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+
+.fade {
+    opacity: 0;
+}
