@@ -2,7 +2,6 @@ import Component from '../Component.js';
 import Header from '../common/Header.js';
 import DrinkList from './DrinkList.js';
 import Search from './Search.js';
-import Paging from './Paging.js';
 import { getDrinks } from '../services/drinks-api.js';
 
 class DrinksApp extends Component {
@@ -26,9 +25,6 @@ class DrinksApp extends Component {
                 const drinks = await getDrinks();
                     
                 drinkList.update({ drinks: drinks });
-
-                paging.update({ 
-                });
             }
             catch (err) {
                 console.log(err);

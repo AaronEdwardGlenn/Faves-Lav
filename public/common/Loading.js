@@ -3,7 +3,7 @@ import Component from '../src/components/Component.js';
 class Loading extends Component {
     renderHTML() {
         const loading = this.props.loading;
-        if(!loading) {
+        if (!loading) {
             return /*html*/`<div></div>`;
         }
         

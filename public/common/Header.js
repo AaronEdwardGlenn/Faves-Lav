@@ -2,7 +2,7 @@ import Component from '../Component.js';
 
 class Header extends Component {
     onRender(dom) {
-        if(localStorage.getItem('USER')) {
+        if (localStorage.getItem('USER')) {
             const button = dom.querySelector('.log-out');
             button.classList.remove('hidden');
 
