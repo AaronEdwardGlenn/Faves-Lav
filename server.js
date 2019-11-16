@@ -94,9 +94,9 @@ app.get('/api/me/favorites', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT id, 
-                name as strDrink, 
-                image as strDrinkThumb, 
-                ingredient as strIngredient1, 
+                name as "strDrink", 
+                image as "strDrinkThumb", 
+                ingredient as "strIngredient1", 
                 user_id as "userId", 
                 TRUE as "isFavorite"
             FROM   favorites
