@@ -29,8 +29,7 @@ class DrinksApp extends Component {
                 drinkList.update({ drinks: drinks });
 
                 paging.update({ 
-                    // This API does not give total results :(
-                    // totalResult: ?
+                    totalResult: 25
                 });
             }
             catch (err) {
