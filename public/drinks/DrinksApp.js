@@ -14,8 +14,7 @@ class DrinksApp extends Component {
         const optionsSection = dom.querySelector('.options-section');
         const search = new Search();
         optionsSection.appendChild(search.renderDOM());
-        const paging = new Paging();
-        optionsSection.appendChild(paging.renderDOM());
+        
 
         const listSection = dom.querySelector('.list-section');
         
@@ -29,7 +28,6 @@ class DrinksApp extends Component {
                 drinkList.update({ drinks: drinks });
 
                 paging.update({ 
-                    totalResult: 25
                 });
             }
             catch (err) {

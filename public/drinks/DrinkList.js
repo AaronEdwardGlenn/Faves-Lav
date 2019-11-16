@@ -5,7 +5,7 @@ class DrinkList extends Component {
     
     onRender(dom) {
         const drinks = this.props.drinks;
-
+        console.log(this.props);
         drinks.forEach(drink => {
             const props = { 
                 drink: drink,

@@ -22,7 +22,7 @@ class Header extends Component {
                 <h1>${title}</h1>
                 <nav>
                     <a href="./">Home</a>
-                    <a href="./drinks.html">drinks</a>
+                    <a href="./drinks.html">Drinks</a>
                     <a href="./favorites.html">Favorites</a>
                 </nav>
                 <button class="log-out hidden">Log Out</button>
