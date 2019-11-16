@@ -1,0 +1,17 @@
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    font-size: 1.2em;
+    height: 48px;
+    width: 300px;
+    padding: 0 5px;
+}
+
+.search-form button {
+    font-size: 1.2em;
+    height: 46px;
+    width: 46px;
+}
